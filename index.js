@@ -50,3 +50,16 @@ controller.hears('.*', ['direct_message, direct_mention'], function(bot, message
   });
 
 });
+
+
+// for heroku
+var http = require('http');
+var url = require('url');
+
+http.createServer(function (req, res) {
+ console.log("Request: " + req.method + " to " + req.url);
+ res.writeHead(200, "OK");
+ res.write("<h1>Hello</h1>Node.js is working");
+ res.end();
+}).listen(process.env.PORT || 5000);
+console.log("RDY");
